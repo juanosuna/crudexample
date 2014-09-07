@@ -1,0 +1,36 @@
+server:
+    port: 8080
+
+spring:
+    profiles: dev
+
+    mail:
+        baseUrl: http://localhost:8080
+
+    thymeleaf:
+        mode: XHTML
+        cache: false
+        viewNames: error
+
+metrics:
+    jmx.enabled: true
+    graphite:
+        enabled: false
+        host: localhost
+        port: 2003
+
+cache:
+    timeToLiveSeconds: 3600
+    ehcache:
+        maxBytesLocalHeap: 16M
+
+# You can add as many as folders to watch
+# You just need to add a dash + the directory to watch
+hotReload:
+    enabled: true
+    package:
+      project: com.brownbag.crud
+      domain: com.brownbag.crud.domain
+      restdto: com.brownbag.crud.web.rest.dto
+    watchdir:
+      - target/classes
