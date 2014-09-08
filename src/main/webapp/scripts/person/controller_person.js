@@ -26,6 +26,6 @@ crudexampleApp.controller('PersonController', function ($scope, resolvedPerson, 
         };
 
         $scope.clear = function () {
-            $scope.person = {id: null, firstName: null, lastName: null};
+            $scope.person = {id: null, firstName: null, lastName: null, email: null};
         };
     });

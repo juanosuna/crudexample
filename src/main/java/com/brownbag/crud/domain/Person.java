@@ -2,6 +2,7 @@ package com.brownbag.crud.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -28,6 +29,10 @@ public class Person extends AbstractEntity {
     @Size(min = 1, max = 50)
     private String lastName;
 
+    @NotNull
+    @Email
+    private String email;
+
     public String getFirstName() {
         return firstName;
     }
@@ -42,5 +47,13 @@ public class Person extends AbstractEntity {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

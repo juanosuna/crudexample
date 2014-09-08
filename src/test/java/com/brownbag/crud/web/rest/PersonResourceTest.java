@@ -53,6 +53,8 @@ public class PersonResourceTest {
 
     private static final String DEFAULT_LAST_NAME = "Osuna";
 
+    private static final String DEFAULT_EMAIL = "juan@brownbagconsulting.com";
+
     @Inject
     private PersonRepository personRepository;
 
@@ -71,6 +73,7 @@ public class PersonResourceTest {
         person = new Person();
     	person.setFirstName(DEFAULT_FIRST_NAME);
     	person.setLastName(DEFAULT_LAST_NAME);
+        person.setEmail(DEFAULT_EMAIL);
     }
 
     @Test
@@ -88,7 +91,8 @@ public class PersonResourceTest {
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(jsonPath("$.id").value(DEFAULT_ID.intValue()))
     			.andExpect(jsonPath("$.firstName").value(DEFAULT_FIRST_NAME))
-    			.andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME));
+    			.andExpect(jsonPath("$.lastName").value(DEFAULT_LAST_NAME))
+                .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL));
 
     	// Update Person
     	person.setFirstName(DEFAULT_FIRST_NAME);
